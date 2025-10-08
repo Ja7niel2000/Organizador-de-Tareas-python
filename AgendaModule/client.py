@@ -12,15 +12,15 @@ def separa_etiquetas(s: str) -> List[str]:
 
 def print_tareas(tareas):
     for t in tareas:
-        status = "[x]" if t.completada else "[ ]"
-        print(f"{t.id} {status} {t.titulo} (prio:{t.prioridad}) {t.fecha or ''}")
+        status ="[x]" if t.completada else "[ ]"
+        print(f"{t.id}  {status} {t.titulo} (prio:{t.prioridad})  {t.fecha or ''}")
  
 def main():
     #nombre del archivo donde se guardara las tareas.
     dataBase="Tareas.json"
 
-    comando = argparse.ArgumentParser(prog="agenda", description="Agenda CLI simple")
-    sub = comando.add_subparsers(dest="command", required=True)
+    comando =argparse.ArgumentParser(prog="agenda", description="Agenda CLI simple")
+    sub =comando.add_subparsers(dest="command", required=True)
 
     # add
     p =sub.add_parser("add", help="Agregar tarea")
@@ -30,8 +30,8 @@ def main():
     p.add_argument("--etiquetas" , default="")
     p.add_argument("--descripcion" , default="")
 
-    # ls
-    p= sub.add_parser("ls",help="Listar tareas")
+    #  ls
+    p= sub.add_parser("ls",   help="Listar tareas")
     p.add_argument("--por" ,  choices=["fecha", "prioridad", "titulo"], default="fecha")
 
     #find
@@ -48,34 +48,33 @@ def main():
     args =comando.parse_args()
 
     repo =AgendaRepo()
-    # si especificaron db y existe, cargar primero
+    #si especificaron db y existe, cargar primero
     if os.path.exists(dataBase):
-        tareas = load_from_file(dataBase)
-        repo.carga_de_lista([t.to_dict() for t in tareas])
+        tareas =load_from_file(dataBase)
+        repo.carga_de_lista([t.to_dict()  for t in tareas])
 
     # ejecutar comando
-    if args.command == "add":
-        etiquetas = separa_etiquetas(args.etiquetas)
-        tarea = repo.add(args.titulo, prioridad=args.prioridad, fecha=args.fecha,
+    if args.command =="add":
+        etiquetas=separa_etiquetas(args.etiquetas)
+        tarea=repo.add(args.titulo, prioridad=args.prioridad, fecha=args.fecha,
                         etiquetas=etiquetas, descripcion=args.descripcion)
         print(f"Tarea agregada: {tarea.id}")
 
-    elif args.command == "ls":
-        tareas = repo.list(orden=args.por)
+    elif args.command =="ls":
+        tareas =repo.list(orden=args.por)
         print_tareas(tareas)
 
-    elif args.command == "find":
-        res = repo.find(args.texto)
+    elif args.command =="find":
+        res =repo.find(args.texto)
         print_tareas(res)
 
-    elif args.command == "done":
-        ok = repo.marca_hecho(args.id)
+    elif args.command=="done":
+        ok =repo.marca_hecho(args.id)
         print("OK" if ok else "No encontrada")
 
-    elif args.command == "rm":
-        ok = repo.remove(args.id)
+    elif args.command=="rm":
+        ok=repo.remove(args.id)
         print("OK" if ok else "No encontrada")
-
 
     #guardar automáticamente al terminar
     save_to_file(dataBase, repo.tareas)
