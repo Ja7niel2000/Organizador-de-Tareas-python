@@ -1,6 +1,5 @@
 # Organizador de tareas 
-
-Es un proyecto en donde trabajamos en equipo para crear un organizador de tareas mediante un concepto de agenda y tareas individuales, dicho proyecto lo desarrollamos con Python 3 y por ahora solo funciona desde nuestra consola o terminal
+Es un proyecto en donde trabajamos en equipo para crear un organizador de tareas mediante un concepto de agenda y tareas individuales, dicho proyecto lo desarrollamos con Python 3 y por ahora solo funciona desde nuestra consola/terminal
 
 ## En qué consiste el proyecto
 Organizamos el proyecto con módulos y manejamos los archivos JSON para guardar datos, con esto, podemos usar la consola para:
@@ -12,12 +11,10 @@ Organizamos el proyecto con módulos y manejamos los archivos JSON para guardar 
 - Guardar y cargar tareas en formato JSON.  
 
 ## Integrantes del equipo
-
 - Carranza Baños Jatniel
 - Téllez Peña Leonardo
 
 ## Ejecución
-
 Puedes usar el proyecto abriendo la terminal y ya una vez dentro de la carpeta del proyecto escribres: ```python agenda.py <comando> [opciones]```
 
 Comandos disponibles:
@@ -63,19 +60,20 @@ Comandos disponibles:
 
 6. Guardar y cargar tareas
    Todas las tareas se guardan automáticamente en un archivo JSON llamado Tareas.json al agregar, completar o eliminar tareas. Al iniciar la agenda, si el archivo existe, se cargan automáticamente las tareas guardadas.
+
 ## Pruebas
 Para ejecutar las pruebas debes colocarte en la carpeta raíz del proyecto y ejecutas el siguiente comando:
 ```
 PYTHONPATH=. pytest -v
 ```
+
 ## Exportación a html
 Se puede generar un archivo index.html con todas las tareas para visualizarlas en un navegador.
-
+Solo colocate en la raíz del proyecto y usa:
 ```
     python export_html.py
 ```
-Abrir index.html en un navegador.
-
+Puedes abrir el archivo html con el navegador que prefieras
 
 ## Imagen de la página
 ![Imagen del html](proyecto2.png)
