@@ -9,19 +9,19 @@
       "css"
     ],
     "descripcion": "Repasar conceptos de grid-template y grid-area.",
-    "completada": false
+    "completada": true
   },
   {
     "id": "T-0002",
     "titulo": "Implementar myFilter en Haskell",
-    "prioridad": 4,
+    "prioridad": 1,
     "fecha": "2026-10-02",
     "etiquetas": [
       "haskell",
       "funcional"
     ],
     "descripcion": "Completar la función myFilter y probarla con pares.",
-    "completada": false
+    "completada": true
   },
   {
     "id": "T-0003",
