@@ -1,0 +1,134 @@
+[
+  {
+    "id": "T-0001",
+    "titulo": "Estudiar CSS Grid",
+    "prioridad": 3,
+    "fecha": "2026-10-01",
+    "etiquetas": [
+      "frontend",
+      "css"
+    ],
+    "descripcion": "Repasar conceptos de grid-template y grid-area.",
+    "completada": true
+  },
+  {
+    "id": "T-0002",
+    "titulo": "Implementar myFilter en Haskell",
+    "prioridad": 1,
+    "fecha": "2026-10-02",
+    "etiquetas": [
+      "haskell",
+      "funcional"
+    ],
+    "descripcion": "Completar la función myFilter y probarla con pares.",
+    "completada": true
+  },
+  {
+    "id": "T-0003",
+    "titulo": "Configurar entorno Angular",
+    "prioridad": 2,
+    "fecha": "2026-10-03",
+    "etiquetas": [
+      "angular",
+      "typescript"
+    ],
+    "descripcion": "Instalar dependencias y crear proyecto base con routing.",
+    "completada": true
+  },
+  {
+    "id": "T-0004",
+    "titulo": "Diseñar layout con CSS Grid",
+    "prioridad": 3,
+    "fecha": "2026-10-04",
+    "etiquetas": [
+      "css",
+      "ui"
+    ],
+    "descripcion": "Crear una cuadrícula responsiva para el dashboard.",
+    "completada": false
+  },
+  {
+    "id": "T-0005",
+    "titulo": "Practicar consultas MongoDB",
+    "prioridad": 2,
+    "fecha": "2026-10-05",
+    "etiquetas": [
+      "mongo",
+      "backend"
+    ],
+    "descripcion": "Revisar operaciones CRUD y operadores de agregación.",
+    "completada": false
+  },
+  {
+    "id": "T-0006",
+    "titulo": "Revisar apuntes de Linux",
+    "prioridad": 1,
+    "fecha": "2026-10-06",
+    "etiquetas": [
+      "linux",
+      "sistemas"
+    ],
+    "descripcion": "Estudiar permisos, procesos y estructura de directorios.",
+    "completada": false
+  },
+  {
+    "id": "T-0007",
+    "titulo": "Actualizar repositorio en GitHub",
+    "prioridad": 3,
+    "fecha": "2026-10-07",
+    "etiquetas": [
+      "git",
+      "versionado"
+    ],
+    "descripcion": "Subir cambios del proyecto full-stack.",
+    "completada": false
+  },
+  {
+    "id": "T-0008",
+    "titulo": "Escribir pruebas unitarias para Polinomio",
+    "prioridad": 4,
+    "fecha": "2026-10-08",
+    "etiquetas": [
+      "java",
+      "testing"
+    ],
+    "descripcion": "Asegurar que los métodos de la clase Polinomio pasen los tests.",
+    "completada": false
+  },
+  {
+    "id": "T-0009",
+    "titulo": "Leer documentación de Express.js",
+    "prioridad": 2,
+    "fecha": "2026-10-09",
+    "etiquetas": [
+      "express",
+      "backend"
+    ],
+    "descripcion": "Repasar middlewares y configuración de rutas.",
+    "completada": false
+  },
+  {
+    "id": "T-0010",
+    "titulo": "Probar API con Postman",
+    "prioridad": 3,
+    "fecha": "2026-10-10",
+    "etiquetas": [
+      "api",
+      "testing"
+    ],
+    "descripcion": "Verificar respuestas JSON y códigos de estado.",
+    "completada": false
+  },
+  {
+    "id": "T-0011",
+    "titulo": "Estudiar Python",
+    "prioridad": 2,
+    "fecha": "2026-10-09",
+    "etiquetas": [
+      "programación",
+      "estudio"
+    ],
+    "descripcion": "Repasar listas y diccionarios",
+    "completada": true
+  }
+]
