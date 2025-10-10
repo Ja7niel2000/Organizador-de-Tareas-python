@@ -66,3 +66,15 @@ Para ejecutar las pruebas debes colocarte en la carpeta raíz del proyecto y eje
 ```
 PYTHONPATH=. pytest -v
 ```
+
+## Exportación a html
+Se puede generar un archivo index.html con todas las tareas para visualizarlas en un navegador.
+Solo colocate en la raíz del proyecto y usa:
+```
+    python export_html.py
+```
+Puedes abrir el archivo html con el navegador que prefieras
+
+## Imagen de la página
+![Imagen del html](proyecto2.png)
+```
