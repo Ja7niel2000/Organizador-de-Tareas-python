@@ -77,3 +77,4 @@ Puedes abrir el archivo html con el navegador que prefieras
 
 ## Imagen de la página
 ![Imagen del html](proyecto2.png)
+```
