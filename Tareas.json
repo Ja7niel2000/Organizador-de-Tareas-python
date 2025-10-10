@@ -33,7 +33,7 @@
       "typescript"
     ],
     "descripcion": "Instalar dependencias y crear proyecto base con routing.",
-    "completada": false
+    "completada": true
   },
   {
     "id": "T-0004",
@@ -118,5 +118,17 @@
     ],
     "descripcion": "Verificar respuestas JSON y códigos de estado.",
     "completada": false
+  },
+  {
+    "id": "T-0011",
+    "titulo": "Estudiar Python",
+    "prioridad": 2,
+    "fecha": "2026-10-09",
+    "etiquetas": [
+      "programación",
+      "estudio"
+    ],
+    "descripcion": "Repasar listas y diccionarios",
+    "completada": true
   }
 ]

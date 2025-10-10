@@ -1,13 +1,12 @@
 import json
+from pathlib import Path
 from AgendaModule.tarea import Tarea
 from AgendaModule.repo import AgendaRepo
-from pathlib import Path
 
 PATH_DB = Path("Tareas.json")
 HTML_PATH = Path("index.html")
 STYLES_PATH=Path("styles.css")
-one="{"
-two="}"
+
 STYLES=""" 
 :root{
     /* --color-secundario:#5170AE;
@@ -161,6 +160,7 @@ footer{
     margin: 0;
 }
 """
+
 HTML = """
 <!DOCTYPE html>
 <html lang="en">
@@ -249,70 +249,84 @@ TAREA_HEADER="""
 """
 
 def main():
-    tareas_completadas_html=""
-    tareas_pendientes_html=""
+    """
+    Genera un archivo HTML y una hoja de estilos CSS con las tareas almacenadas en 'Tareas.json'.
+
+    Este script:
+    - Carga las tareas desde un archivo JSON.
+    - Las separa en tareas completadas y pendientes.
+    - Ordena cada grupo por prioridad.
+    - Genera un archivo HTML con ambas listas y una hoja de estilo CSS asociada.
+
+    Archivos generados:
+        - index.html: Contiene la estructura visual con las tareas.
+        - styles.css: Define el estilo del documento.
+
+    Requisitos:
+        - El archivo 'Tareas.json' debe existir y contener una lista de tareas con formato adecuado.
+    """
+    tareas_completadas_html = ""
+    tareas_pendientes_html = ""
 
     if not PATH_DB:
         print("NO existe base de datos")
         return 
     
-    with open(PATH_DB,"r", encoding="utf-8") as f:
+    with open(PATH_DB, "r", encoding = "utf-8") as f:
         data=json.load(f)
 
     repo = AgendaRepo()
     repo.carga_de_lista(data)
-    tareas=repo.tareas
-    tareas_completadas=sorted([t for t in tareas if t.completada ],key=lambda t: t.prioridad, reverse=True)
-    tareas_pendientes=sorted([t for t in tareas if not t.completada],key=lambda t:t.prioridad,reverse=True)
+    tareas = repo.tareas
+    tareas_completadas = sorted([t for t in tareas if t.completada ], key=lambda t: t.prioridad, reverse = True)
+    tareas_pendientes = sorted([t for t in tareas if not t.completada], key=lambda t: t.prioridad, reverse = True)
     
-    i1=0
-    i2=0
+    i1 = 0
+    i2 = 0
     for t in tareas_completadas:
-        i2=i2+1
-        etiquetas=""
+        i2 = i2 + 1
+        etiquetas = ""
         for eti in t.etiquetas:
-            etiquetas+=eti+", "
-        tareas_completadas_html+=TAREA_TEMPLATE.format(
-        id=t.id,
-        i_=i2,
-        ti=t.titulo,
-        pr=t.prioridad,
-        fe=t.fecha,
-        de=t.descripcion,
-        et=etiquetas[0:len(etiquetas)-2]
+            etiquetas += eti + ", "
+        tareas_completadas_html += TAREA_TEMPLATE.format(
+        id = t.id,
+        i_ = i2,
+        ti = t.titulo,
+        pr = t.prioridad,
+        fe = t.fecha,
+        de = t.descripcion,
+        et = etiquetas[0:len(etiquetas) - 2]
         )
     for t in tareas_pendientes:
-        i1=i1+1
-        etiquetas=""
+        i1 = i1 + 1
+        etiquetas = ""
         for eti in t.etiquetas:
-            etiquetas+=eti+", "
-        tareas_pendientes_html+=TAREA_TEMPLATE.format(
-        id=t.id,
-        i_=i1,
-        ti=t.titulo,
-        pr=t.prioridad,
-        fe=t.fecha,
-        de=t.descripcion,
-        et=etiquetas[0:len(etiquetas)-2]
+            etiquetas += eti + ", "
+        tareas_pendientes_html += TAREA_TEMPLATE.format(
+        id = t.id,
+        i_ = i1,
+        ti = t.titulo,
+        pr = t.prioridad,
+        fe = t.fecha,
+        de = t.descripcion,
+        et = etiquetas[0:len(etiquetas) - 2]
         )
 
-    header1=TAREA_HEADER.format()  
-    header2=TAREA_HEADER.format()     
+    header1 = TAREA_HEADER.format()  
+    header2 = TAREA_HEADER.format()     
 
-    if(tareas_pendientes_html==""):
-        tareas_pendientes_html=NO_TAREA
-        header1=""
+    if(tareas_pendientes_html == ""):
+        tareas_pendientes_html = NO_TAREA
+        header1 = ""
 
+    if(tareas_completadas_html == ""):
+        tareas_completadas_html = NO_TAREA
+        header2 = ""
 
-    if(tareas_completadas_html==""):
-        tareas_completadas_html=NO_TAREA
-        header2=""
+    html = HTML.format(header1 = header1, header2 = header2, t_p = tareas_pendientes_html, t_c = tareas_completadas_html, i1 = i1, i2 = i2)
 
-         
-    html=HTML.format(header1=header1,header2=header2, t_p=tareas_pendientes_html, t_c=tareas_completadas_html,i1=i1,i2=i2)
-
-    STYLES_PATH.write_text(STYLES, encoding="utf-8")    
-    HTML_PATH.write_text(html,encoding="utf-8")
+    STYLES_PATH.write_text(STYLES, encoding = "utf-8")    
+    HTML_PATH.write_text(html, encoding = "utf-8")
 
 if __name__ == "__main__":
     main()
